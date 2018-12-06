@@ -7,7 +7,6 @@ body{
     background-color: rgb(8, 8, 27);
 }
 
-
 header{
     background: white;
     padding: 20px;
@@ -49,5 +48,48 @@ header > h1{
 #computer-label{
     position: absolute;
     top: 32px;
-    left: 168px;
+    right: -28px;
+}
+
+.result{
+    font-size: 20px;
+    color: white;    
+}
+
+.result > p{
+    text-align: center;
+    font-weight: bold;
+    font-family: Asap, sans-serif;
+}
+
+.choices{
+    margin-top: 40px;
+    text-align: center;
+}
+/*configurações de cada 'botão'*/
+.choice{
+    border: 3px solid white;
+    border-radius: 50%;
+    margin: 0 20px;
+    padding: 10px;
+    display: inline-block;
+    transition: all 0.3s ease; /*demora 0.3s para transitar para a cor completamente*/
+}
+/*inverte as cores da imagem*/
+.choice img {
+	filter: invert(100%);
+}   
+/*quando o pontero do mouse passa por cima muda de cor*/
+.choice:hover{
+    cursor: pointer;
+    background: rgb(11, 11, 31);
+}
+
+#action-message{
+    text-align: center;
+    color: white;
+    font-family: Asap, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 25px;
 }
