@@ -3,7 +3,7 @@ let computerScore = 0;
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
-const result_div = document.querySelector(".result");
+const result_p = document.querySelector(".result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
@@ -14,21 +14,31 @@ function getComputerChoice(){
     return choices[randomNumber];
 }
 
-function win(user, computer){
+function convertToWord(letter){
+    if(letter == "r") return "Pedra";
+    if(letter == "p") return "Papel";
+    return "Tesoura"
+}
+
+function win(userChoice, computerChoice){
     userScore++;
     userScore_span.innerHTML = userScore;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = user + " beats " + computer + ", You Win";
+    result_p.innerHTML = convertToWord(userChoice) + " bate " + convertToWord(computerChoice) + ", Você venceu!";
 }
 
-function lose() {
-    console.log("LOSE!");
-    console.log(userScore);
+function lose(userChoice, computerChoice) {
+    computerScore++;
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = convertToWord(userChoice) + " perde para " + convertToWord(computerChoice) + ",Você perdeu!";
+
 }
 
-function draw(){
-    console.log("DRAW!");
-    console.log(userScore);
+function draw(userChoice, computerChoice){
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = convertToWord(userChoice) + " empata com " + convertToWord(computerChoice);
 }
 
 function game(userChoice){
